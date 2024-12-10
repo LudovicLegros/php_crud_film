@@ -6,36 +6,62 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
     $password = htmlspecialchars($_POST['password']);
     $passwordConfirm = htmlspecialchars($_POST['passwordConfirm']);
 
-    // Cryptage du mot de passe
-    if($password == $passwordConfirm){
-        $passwordCrypt = password_hash($password,PASSWORD_BCRYPT);
-
-        // Préparation de la requête
-        $request = $bdd->prepare('INSERT INTO users (username,password)
-        VALUE (:username,:password)'
+    // REQUETE read qui va permettre de lire la table user
+    $request = $bdd->prepare('  SELECT COUNT(*) as usernb
+                                FROM users 
+                                WHERE username = ? '
+                            
     );
 
-        // Exécution de la requête
-        $request->execute(array(
-        'username' =>  $username,
-        'password'  =>  $passwordCrypt,
-        ));
+    $request->execute(array($username));
 
-        header('location:/perigueux_php_full/index.php?success=4');
+    $data = $request->fetch();
+
+    // Grace a la requete READ on peut vérifier si l'utilisateur existe deja en BDD 
+    if($data['usernb'] >= 1){
+        header('location:subscribe.php?error=2');
     }else{
-        header('location:subscribe.php?error=1');
-    }
+
+        // Cryptage du mot de passe
+        if($password == $passwordConfirm){
+            $passwordCrypt = password_hash($password,PASSWORD_BCRYPT);
+
+            // Préparation de la requête
+            $request = $bdd->prepare('INSERT INTO users (username,password)
+            VALUE (:username,:password)'
+        );
+
+            // Exécution de la requête
+            $request->execute(array(
+            'username' =>  $username,
+            'password'  =>  $passwordCrypt,
+            ));
+
+            header('location:/perigueux_php_full/index.php?success=4');
+        }else{
+            header('location:subscribe.php?error=1');
+        }
+    }   
 }
 
 ?>
 
 <?php include('../includes/head.php'); ?>
 <body>
-    <h1>Inscription</h1>
     <?php include('../includes/nav.php') ?>
-    <?php if(isset($_GET['error'])):?>
-        <p class="error">Vos mots de passe ne correspondent pas</p>
-    <?php endif?>
+    <h1>Inscription</h1>
+    
+    <?php if(isset($_GET['error'])){ ?>
+       <?php  switch($_GET['error']){
+                case 1:
+                    echo "<p class='error'>Vos mots de passe ne correspondent pas</p>";
+                    break;
+                case 2:
+                    echo "<p class='error'>Ce nom d'utilisateur existe déjà</p>";
+                    break;
+            }
+        } ?>
+
     <form action="subscribe.php" method="post">
         <label for="username">Votre nom d'utilisateur</label>
         <input type="text" name="username" id="username">

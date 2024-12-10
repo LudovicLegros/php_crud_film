@@ -17,8 +17,9 @@ include('app/includes/head.php')
 ?>
 
 <body>
-    <h1>Récuperation de requetes</h1>
     <?php include('app/includes/nav.php') ?>
+    <h1>Récuperation de requetes</h1>
+    
 
     <!-- AFFICHAGE D'UN MESSAGE DE CONFIRMATION D'OPERATION -->
     <?php
@@ -47,25 +48,28 @@ include('app/includes/head.php')
 <!-- BOUCLE DE RECUPERATION DE LA REQUEST -->
     <?php
     while ($data = $request->fetch()) :
-        // var_dump($data) 
+         
     ?>
         <article>
-            <p><?= $data['titre']  ?></p>
-            <p><?php 
-            $min= $data['duree']%60;
-            $heure= ($data['duree']-($min))/60;
-            echo $heure . "h" . $min . "min";
-            
-            ?></p>
-            <p><?= $data['date']  ?></p>
-            <p>par : <?= $data['username']  ?></p>
 
+            <!-- Condition pour afficher l'image, ou l'image générique -->
             <?php if($data['img'] == NULL ): ?>
                 <img src="assets/img/noimage.png" alt="">
             <?php else: ?>
                 <img src="assets/img/<?php echo $data['img'] ?>" alt="">
-                <?php var_dump($data['img']) ?>
             <?php endif ?>
+
+            <p><?= $data['titre']  ?></p>
+
+            <!-- formatage du temps -->
+            <p><?php 
+                $min= $data['duree']%60;
+                $heure= ($data['duree']-($min))/60;
+                echo $heure . "h" . $min . "min";
+            ?></p>
+            <p><?= $data['date']  ?></p>
+            <p>par : <?= $data['username']  ?></p>
+
 
             <?php if(isset($_SESSION['userid'])): ?>
                 <?php if($_SESSION['userid']==$data['user_id']): ?>

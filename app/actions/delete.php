@@ -18,7 +18,9 @@
             
             // Verification de l'utilisateur
             if($_SESSION['userid']==$data['user_id']){
-                
+                // Suppression du fichier en local
+                unlink('../../assets/img/' . $data['img']);
+
                 //ON EXECUTE LA REQUETE DELETE SI CA CORRESPOND
                 $request = $bdd->prepare('  DELETE FROM fiche_film
                 WHERE id=:id');

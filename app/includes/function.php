@@ -14,8 +14,3 @@ function sanitarize($input){
     return htmlspecialchars(trim(strtolower($input)));
 }
 
-if(isset($_SESSION['userid'])){
-    echo $_SESSION['userid'];
-}else{
-    echo "pas connecté";
-}

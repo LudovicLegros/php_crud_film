@@ -27,8 +27,9 @@
 <?php include('../includes/head.php'); ?>
 
 <body>
-    <h1>Connexion</h1>
+    
     <?php include('../includes/nav.php') ?>
+    <h1>Connexion</h1>
     <?php if(isset($_GET['error'])):?>
         <p class="error">Nom d'utilisateur ou mot de passe incorrect</p>
     <?php endif?>

@@ -1,5 +1,30 @@
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    text-decoration: none;
+}
+
 body {
     font-family: calibri;
+    background-color: #EFD3D7;
+}
+
+nav{
+    background-color: #CBC0D3;
+}
+
+ul{
+    display:flex;
+    justify-content: center;
+}
+
+li{
+    padding:1rem 2rem;
+}
+
+h1{
+    margin:2rem;
 }
 
 h2 {
@@ -8,18 +33,18 @@ h2 {
 
 section{
     display:flex;
-    /* justify-content: center; */
+    justify-content: center;
     flex-wrap: wrap;
     padding:0 3rem; 
 }
 
 article{
-    width: 200px;
-    height: 350px;
-    border: 1px solid black;
+    width: 300px;
+    height: 500px;
     border-radius: 5px;
     padding: 1rem;
     margin:1rem;
+    background-color: white;
 }
 
 .success{
@@ -33,6 +58,53 @@ article{
 }
 
 img{
-    height: 50%;
+    width: 100%;
+    height: 75%;
+    object-fit: cover;
+
     
 }
+
+/* Formulaire */
+form{
+    width: 300px;
+    margin:2rem;
+    }  
+
+input {
+    display:block;
+    width:100%;
+    margin:10px 0;
+    padding:10px;
+    border-radius:10px;
+    border: 1px solid #eee;
+    transition: .3s border-color;
+}
+
+input:hover{
+        border: 1px solid #aaa;
+    }
+
+button{
+    /* remove default behavior */
+    appearance:none;
+    -webkit-appearance:none;
+
+    /* usual styles */
+    padding:10px;
+    border:none;
+    background-color:#413F54;
+    color:#fff;
+    font-weight:600;
+    border-radius:5px;
+    width:50%;
+    transition:all ease-in-out 0.3s ;
+
+}
+
+
+button:hover{
+    opacity:80%;
+    cursor:pointer;
+}
+

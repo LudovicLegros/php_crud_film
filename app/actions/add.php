@@ -53,18 +53,23 @@
 
 <?php include('../includes/head.php'); ?>
 <body>
+   
     <?php include('../includes/nav.php') ?>
-    <form action="add.php" method="POST" enctype="multipart/form-data">
-        <label for="titre">Entrez un nouveau film</label>
-        <input id="titre" type="text" name="titre">
-        <label for="duree">Entrez la duree en min</label>
-        <input id="duree" type="number" name="duree">
-        <label for="annee">Entrez l'année de sortie</label>
-        <input id="annee" type="number" name="annee">
-        <label for="image">Choisissez une image</label>
-        <input id="image" type="file" name="image">
-        <button>Ajouter</button>
-    </form>
+    <section>
+        <form action="add.php" method="POST" enctype="multipart/form-data">
+            <label for="titre">Entrez un nouveau film</label>
+            <input id="titre" type="text" name="titre">
+            <label for="duree">Entrez la duree en min</label>
+            <input id="duree" type="number" name="duree">
+            <label for="annee">Entrez l'année de sortie</label>
+            <input id="annee" type="number" name="annee">
+            <label for="image">Choisissez une image</label>
+            <input id="image" type="file" name="image">
+            <button>Ajouter</button>
+        </form>
+
+    </section>
+   
     
 </body>
 </html>
