@@ -1,0 +1,38 @@
+body {
+    font-family: calibri;
+}
+
+h2 {
+    color: brown
+}
+
+section{
+    display:flex;
+    /* justify-content: center; */
+    flex-wrap: wrap;
+    padding:0 3rem; 
+}
+
+article{
+    width: 200px;
+    height: 350px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1rem;
+    margin:1rem;
+}
+
+.success{
+    color:green;
+    font-weight: 900;
+}
+
+.error{
+    color:red;
+    font-weight: 900;
+}
+
+img{
+    height: 50%;
+    
+}
