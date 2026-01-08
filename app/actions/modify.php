@@ -3,6 +3,8 @@
 <?php
     include('../includes/function.php');
     // Creation d'une condition, si un "id" est trouvé on reste sur la page sinon on retourne sur l'index
+    $title = 'modifier le film';
+    
     if(isset($_GET['id'])){
         $id = htmlspecialchars($_GET['id']);
 
@@ -22,13 +24,13 @@
          
             // On vérifie si l'utilisateur est bien celui qui a créé la fiche
             if($_SESSION['userid']!=$data['user_id']){
-                header("location:/perigueux_php_full/index.php");
+                header("location:". BASE_URL ."/index.php");
 
                 
             }
 
     }else{
-        header('location:/perigueux_php_full/index.php');
+        header('location:'. BASE_URL .'/index.php');
     }
 
     
@@ -127,19 +129,20 @@
 <?php include('../includes/head.php'); ?>
 <body>
     <?php include('../includes/nav.php') ?>
-    <form action="modify.php" method="POST" enctype="multipart/form-data">
-        <label for="titre">Entrez un nouveau film</label>
-        <input id="titre" type="text" name="titre" value="<?php echo $data['titre'];?>">
-        <label for="duree">Entrez la duree en min</label>
-        <input id="duree" type="number" name="duree" value="<?php echo $data['duree'];?>">
-        <label for="annee">Entrez l'année de sortie</label>
-        <input id="annee" type="number" name="annee" value="<?php echo $data['date'];?>">
-        <input type="hidden" name="id" value="<?php echo $data['id'];?>">
-        <label for="image">Choisissez une image</label>
-        <input id="image" type="file" name="image">
+    <section id="form">
+        <form action="modify.php" method="POST" enctype="multipart/form-data">
+            <label for="titre">Entrez un nouveau film</label>
+            <input id="titre" type="text" name="titre" value="<?php echo $data['titre'];?>">
+            <label for="duree">Entrez la duree en min</label>
+            <input id="duree" type="number" name="duree" value="<?php echo $data['duree'];?>">
+            <label for="annee">Entrez l'année de sortie</label>
+            <input id="annee" type="number" name="annee" value="<?php echo $data['date'];?>">
+            <input type="hidden" name="id" value="<?php echo $data['id'];?>">
+            <label for="image">Choisissez une image</label>
+            <input id="image" type="file" name="image">
 
-        <button>modifier</button>
-    </form>
-    
+            <button>modifier</button>
+        </form>
+    </section>
 </body>
 </html>

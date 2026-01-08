@@ -61,15 +61,16 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
                     break;
             }
         } ?>
-
-    <form action="subscribe.php" method="post">
-        <label for="username">Votre nom d'utilisateur</label>
-        <input type="text" name="username" id="username">
-        <label for="password">Votre mot de passe</label>
-        <input type="password" name="password" id="password">
-        <label for="passwordConfirm">Confirmez votre mot de passe</label>
-        <input type="password" name="passwordConfirm" id="passwordConfirm">
-        <button>s'inscrire</button>
-    </form>
+    <section id="form">
+        <form action="subscribe.php" method="post">
+            <label for="username">Votre nom d'utilisateur</label>
+            <input type="text" name="username" id="username">
+            <label for="password">Votre mot de passe</label>
+            <input type="password" name="password" id="password">
+            <label for="passwordConfirm">Confirmez votre mot de passe</label>
+            <input type="password" name="passwordConfirm" id="passwordConfirm">
+            <button>s'inscrire</button>
+        </form>
+    </section>
 </body>
 </html>

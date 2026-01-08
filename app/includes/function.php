@@ -6,10 +6,17 @@ session_start();
 //'sbdgr_utilisé:host=ip_de_la_bdd:dbname=le_nom_de_la_bdd;charset=utf8','username_de_bdd','password_de_bdd'
 $bdd = new PDO('mysql:host=localhost;dbname=perigueux_fiche_film;charset=utf8', 'root', '');
 
+//Definition d'un chemin d'accés universel 
+$format = str_replace('\\','/',__DIR__);
+$path = str_replace($_SERVER['CONTEXT_DOCUMENT_ROOT'],'',$format);
+define('BASE_URL', substr($path,0,-13)); 
+
+
 // Création d'une fonction pour: 
 //     -enlever les caractères de code(htmlspecialchar), 
 //     -les espaces(trim),
 //     -mettre tout en minuscule(strtolower)
+
 function sanitarize($input){
     return htmlspecialchars(trim(strtolower($input)));
 }

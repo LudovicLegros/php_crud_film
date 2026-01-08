@@ -12,6 +12,16 @@ body {
 
 nav{
     background-color: #CBC0D3;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+nav a{
+    transition:all 0.3s ease-in-out;
+}
+
+nav a:hover{
+    color:#EFD3D7;
 }
 
 ul{
@@ -65,7 +75,13 @@ img{
     
 }
 
+
+
 /* Formulaire */
+#form{
+    justify-content: center;
+}
+
 form{
     width: 300px;
     margin:2rem;
@@ -79,6 +95,11 @@ input {
     border-radius:10px;
     border: 1px solid #eee;
     transition: .3s border-color;
+}
+
+input[type="checkbox"]{
+    display:inline;
+    width: 2rem;
 }
 
 input:hover{
@@ -108,3 +129,80 @@ button:hover{
     cursor:pointer;
 }
 
+
+/* PARTIE VOIR PLUS  */
+.detail-page {
+    min-height: 100vh;
+    background-color: #EFD3D7;
+    padding: 4rem 6%;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+}
+
+/* header d'element */
+.detail-header {
+    margin-bottom: 4rem;
+}
+
+.detail-header h1 {
+    font-size: 3rem;
+    color: #551A8B;
+    background-color: #CBC0D3;
+    padding: 1.2rem 2rem;
+    border-radius: 18px;
+    display: inline-block;
+}
+
+.detail-year {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+/* Contenu */
+.detail-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+/* Image */
+.detail-image img {
+    width: 100%;
+    max-height: 75vh;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Texte */
+.detail-text {
+    background-color: #CBC0D3;
+    padding: 3rem;
+    border-radius: 24px;
+}
+
+.detail-text h2 {
+    font-size: 1.8rem;
+    color: #551A8B;
+    margin-bottom: 1.5rem;
+}
+
+.detail-text p {
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.detail-genre{
+    margin-top:1rem;
+}
+
+span {
+    padding:5px 6px;
+    border-radius: 5px;
+    background-color: #551A8B;
+    color:white;
+}

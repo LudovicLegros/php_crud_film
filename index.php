@@ -1,6 +1,7 @@
 <!-- REQUEST READ -->
 <!-- ----------- -->
 <?php
+    define('ROOT_PATH', __DIR__);
     include('app/includes/function.php');
 
     $request = $bdd->prepare('  SELECT f.titre,f.duree,f.date,f.id as film_id,f.user_id,u.id,u.username,f.img
@@ -13,7 +14,8 @@
 ?>
 
 <?php 
-include('app/includes/head.php')
+$title = "Récuperation de requêtes";
+include('app/includes/head.php');
 ?>
 
 <body>
@@ -70,7 +72,7 @@ include('app/includes/head.php')
             <p><?= $data['date']  ?></p>
             <p>par : <?= $data['username']  ?></p>
 
-
+            <a href="voir_plus.php?id=<?php echo $data['film_id']?>">Voir plus</a>
             <?php if(isset($_SESSION['userid'])): ?>
                 <?php if($_SESSION['userid']==$data['user_id']): ?>
                 <a href="app/actions/modify.php?id=<?php echo $data['film_id']?>">modifier</a>

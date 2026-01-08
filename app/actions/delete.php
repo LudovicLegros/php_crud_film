@@ -28,14 +28,14 @@
                 $request->execute(['id' =>$id]);
 
                 // echo $id;
-                header('location:/perigueux_php_full/index.php?success=3');
+                header('location:'. BASE_URL .'/index.php?success=3');
                 exit();
             }else{
-                header('location:/perigueux_php_full/index.php');
+                header('location:'. BASE_URL .'/perigueux_php_full/index.php');
             }
 
         }else{
-            header('location:/perigueux_php_full/index.php');
+            header('location:'. BASE_URL .'/perigueux_php_full/index.php');
         }
 
    
